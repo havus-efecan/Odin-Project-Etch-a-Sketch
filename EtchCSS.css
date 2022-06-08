@@ -1,0 +1,42 @@
+
+
+.square1{
+
+    border-style: solid;
+
+    display: flex;
+    padding: 20px;
+
+}
+
+
+.highlighted{
+
+    border-style: solid;
+
+    display: flex;
+    padding: 20px;
+
+    background-color: black;
+
+}
+
+
+.box{
+    /* border-style: solid;
+    border-color:red ; */
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+
+body{
+
+    display: flex;
+    flex-direction: column;
+
+
+}

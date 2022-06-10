@@ -1,6 +1,5 @@
     
     let mouseDown = 0;
-    let colorSelected = false;
     colorRandom = true;
 
     document.body.onmousedown = function() { 
@@ -34,13 +33,6 @@
     
     })
 
-    newButton.addEventListener('onmouseover',function(){
-
-      //  newButton.style.backgroundColor = 'red'
-    
-    
-    
-    })
 
 
 
@@ -52,6 +44,8 @@
         }
         return color;
       }
+
+    let colorSelected = getRandomColor();
 
     drawSideBar()
     drawGrid();
@@ -79,23 +73,56 @@
         colorContainer.appendChild(redButton);
         redButton.classList.add('button')
         redButton.classList.add('red')
+        redButton.addEventListener('click', function setColor(){
+
+            colorSelected = 'red'
+            colorRandom = false;
+
+        })
 
 
         colorContainer.appendChild(blueButton);
         blueButton.classList.add('button')
         blueButton.classList.add('blue')
+        blueButton.addEventListener('click', function setColor(){
+
+            colorSelected = 'blue'
+            colorRandom = false;
+
+        })
 
 
         colorContainer.appendChild(greenButton);
         greenButton.classList.add('button')
         greenButton.classList.add('green')
+        greenButton.addEventListener('click', function setColor(){
 
+            colorSelected = 'green'
+            colorRandom = false;
+
+        })
 
         colorContainer.appendChild(yellowButton);
         yellowButton.classList.add('button')
         yellowButton.classList.add('yellow')
+        yellowButton.addEventListener('click', function setColor(){
+
+            colorSelected = 'yellow'
+            colorRandom = false;
+
+        })
 
     }
+
+    function setColor(color){
+
+
+        colorSelected = color;
+
+
+
+    }
+
 
     function drawGrid(){
         
@@ -166,16 +193,17 @@
 
     //   this.classList.add('highlighted')
 
-        if (colorRandom === false) {
+     
+    if(colorRandom === true){
 
-            this.style.backgroundColor = color
+        this.style.backgroundColor = getRandomColor();
 
-        } else {
+    } else {
 
-            this.style.backgroundColor = getRandomColor();
+        this.style.backgroundColor = colorSelected;
 
-
-        }
+    }
+      
 
 
    }

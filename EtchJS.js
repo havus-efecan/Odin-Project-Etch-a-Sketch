@@ -3,10 +3,10 @@
     colorRandom = true;
 
     document.body.onmousedown = function() { 
-        ++mouseDown;
+        mouseDown=1;
       }
       document.body.onmouseup = function() {
-        --mouseDown;
+        mouseDown=0;
       }
 
     let size = 16
@@ -147,7 +147,7 @@
             for (i = 0; i < size; i++){
     
     
-                let square = document.createElement('div')
+                let square = document.createElement('button')
              
              
                 square.classList.add('square1')
@@ -174,7 +174,8 @@
    
    
         squareArray[x].addEventListener('mouseover',hover)
-   
+        squareArray[x].addEventListener('mousedown',mousedown)
+
         }
 
 
@@ -185,7 +186,29 @@
 
     
 
-     
+    function mousedown(){
+
+
+        if(colorRandom === true){
+
+            this.style.backgroundColor = getRandomColor();
+    
+        } else {
+    
+            this.style.backgroundColor = colorSelected;
+    
+        }
+
+
+
+
+    }
+
+
+
+
+
+
 
    function hover(){
 
@@ -193,16 +216,24 @@
 
     //   this.classList.add('highlighted')
 
-     
-    if(colorRandom === true){
 
-        this.style.backgroundColor = getRandomColor();
+    
+     if(mouseDown === 1){
 
-    } else {
+        if(colorRandom === true){
 
-        this.style.backgroundColor = colorSelected;
+            this.style.backgroundColor = getRandomColor();
+    
+        } else {
+    
+            this.style.backgroundColor = colorSelected;
+    
+        }
 
-    }
+
+     }
+    
+    
       
 
 
